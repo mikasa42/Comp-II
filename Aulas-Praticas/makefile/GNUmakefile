@@ -1,0 +1,851 @@
+#
+# Universidade Federal do Rio de Janeiro
+# Escola Politecnica
+# Departamento de Eletronica e de Computacao
+# EEL270 - Computacao II - Turma 2020/2
+# Prof. Marcelo Luiz Drumond Lanza
+#
+# Author: Mikaela Rikberg Alves
+# Descricao: <descricao sucinta sobre o programa>
+#
+
+#$Author: mikaela.alves $
+#$Date: 2021/10/18 20:46:12 $
+#$Log: GNUmakefile,v $
+#Revision 1.20  2021/10/18 20:46:12  mikaela.alves
+#*** empty log message ***
+#
+#Revision 1.19  2021/10/16 16:42:46  mikaela.alves
+#*** empty log message ***
+#
+#Revision 1.18  2021/10/12 23:14:27  mikaela.alves
+#Aula0902
+#
+#Revision 1.17  2021/10/02 19:08:12  mikaela.alves
+#roteiro 8
+#
+#Revision 1.16  2021/09/19 23:54:28  mikaela.alves
+#Roteiro 7
+#
+#Revision 1.15  2021/09/18 01:59:20  mikaela.alves
+#Alteracoes para a funcao limpar monitor
+#
+#Revision 1.14  2021/09/18 01:42:53  mikaela.alves
+#Roteiro 7 - Mostrar monitor
+#
+#Revision 1.13  2021/09/09 23:36:12  mikaela.alves
+#roteiro 6
+#
+#Revision 1.12  2021/08/31 23:08:46  mikaela.alves
+#Roteiro 6
+#
+#Revision 1.11  2021/08/28 19:25:17  mikaela.alves
+#Versao com todos os objetos do roteiro 5
+#
+#Revision 1.10  2021/08/24 23:31:50  mikaela.alves
+#primeira versao
+#
+#Revision 1.9  2021/08/24 00:37:02  mikaela.alves
+#Correção das bibliotecas
+#
+#Revision 1.8  2021/08/21 17:35:00  mikaela.alves
+#segunda versao
+#
+#Revision 1.7  2021/08/21 15:40:25  mikaela.alves
+#primeira versao
+#
+#Revision 1.6  2021/08/17 22:53:37  mikaela.alves
+#primeira versao
+#
+#Revision 1.5  2021/08/12 05:13:42  mikaela.alves
+#Segunda versao
+#
+#Revision 1.4  2021/08/10 22:43:08  mikaela.alves
+#primeira versao
+#
+#Revision 1.3  2021/08/05 22:48:46  mikaela.alves
+#segunda versao
+#
+#Revision 1.2  2021/08/05 21:14:47  mikaela.alves
+#PRIMEIRA VERSAO
+#
+#Revision 1.1  2021/07/30 07:43:23  mikaela.alves
+#Initial revision
+#
+
+OS = $(shell uname -s)
+
+CC = gcc
+
+ifeq ($(cc), CLANG)
+CC = clang
+endif
+
+LD = $(CC)
+
+DIALETO = ansi
+STANDARD = -ansi
+
+ifeq ($(dialeto), C89)
+DIALETO = c89
+STANDARD = -std=c89
+endif
+
+ifeq ($(dialeto), C99)
+DIALETO = c99
+STANDARD = -std=c99
+endif
+
+ifeq ($(dialeto), C11)
+DIALETO = c11
+STANDARD = -std=c11
+endif
+
+ifeq ($(dialeto),C90)
+DIALETO = c90
+STANDARD = -std=c90
+endif
+
+
+DEBUG =
+
+ifeq ($(debug), DEPURACAO)
+DEBUG = -DDEPURACAO
+endif
+
+CFLAGS = -Wall $(STANDARD) $(DEBUG)
+LFLAGS = -Wall
+
+ 
+
+AULA01 = aula0101\
+		aula0102\
+	      	aula0103\
+		aula0104\
+		aula0105
+AULA02 = aula0202a\
+		aula0202b\
+		aula0202c\
+		aula0202d
+  
+AULA03 = aula0302a\
+	 	aula0302b\
+		aula0302c\
+		aula0302d
+AULA04 = aula0402a\
+	 	aula0402b\
+		aula0402c\
+		aula0402d\
+		aula0404a\
+		aula0404b\
+		aula0404c\
+		aula0404d\
+		aula0404ea
+
+AULA05 = aula0502a\
+	 aula0502b\
+	 aula0503a\
+	 aula0503b\
+	 aula0505a\
+	 aula0505b\
+	 aula0506a\
+	 aula0506b
+
+AULA06 = aula0602\
+	aula0603\
+	aula0604\
+	aula0605\
+	aula0606
+
+AULA07 = aula0702\
+	aula0703\
+	aula0704\
+	aula0705\
+	aula0706
+
+AULA08 = aula0802\
+	 aula0803\
+	 aula0804\
+	 aula0805\
+	 aula0806\
+	 aula0807\
+	 aula0808\
+	 aula0809
+
+AULA09 = aula0902\
+	 aula0903\
+	 aula0904
+
+EELEXIBIRPAGINAINICIAL = eelExibirPaginaInicial.cgi
+
+AULA0101OBJS = aula0101.o  
+AULA0102OBJS = aula0102.o  
+AULA0103OBJS = aula0103.o  
+AULA0104OBJS = aula0104.o  
+AULA0105OBJS = aula0105.o
+
+AULA0202AOBJS = aula0201a.o aula0202.o
+AULA0202BOBJS = aula0201b.o aula0202.o
+AULA0202COBJS = aula0201c.o aula0202.o
+AULA0202DOBJS = aula0201d.o aula0202.o
+	
+AULA0302AOBJS = aula0301a.o aula0302.o
+AULA0302BOBJS = aula0301b.o aula0302.o
+AULA0302COBJS = aula0301c.o aula0302.o
+AULA0302DOBJS = aula0301d.o aula0302.o
+
+AULA0402AOBJS = aula0401a.o aula0402.o
+AULA0402BOBJS = aula0401b.o aula0402.o
+AULA0402COBJS = aula0401c.o aula0402.o
+AULA0402DOBJS = aula0401d.o aula0402.o
+
+AULA0404AOBJS = aula0403a.o aula0404.o
+AULA0404BOBJS = aula0403b.o aula0404.o
+AULA0404COBJS = aula0403c.o aula0404.o
+AULA0404DOBJS = aula0403d.o aula0404.o
+AULA0404EOBJS = aula0403e.o aula0404.o
+
+AULA0502AOBJS = aula0502a.o aula0501.o
+AULA0502BOBJS = aula0502b.o aula0501.o
+AULA0503AOBJS = aula0503a.o aula0501.o
+AULA0503BOBJS = aula0503b.o aula0501.o
+
+AULA0505AOBJS = aula0505a.o aula0504.o
+AULA0506BOBJS = aula0505b.o aula0504.o
+AULA0506AOBJS = aula0506a.o aula0504.o
+AULA0506BOBJS = aula0506b.o aula0504.o
+
+AULA0602OBJS = aula0601.o aula0602.o
+AULA0603OBJS = aula0601.o aula0603.o
+AULA0604OBJS = aula0601.o aula0604.o
+AULA0605OBJS = aula0601.o aula0605.o
+AULA0606OBJS = aula0601.o aula0606.o
+
+
+AULA0702OBJS = aula0701.o aula0702.o
+AULA0703OBJS = aula0701.o aula0703.o
+AULA0704OBJS = aula0701.o aula0704.o
+AULA0705OBJS = aula0701.o aula0705.o
+AULA0706OBJS = aula0701.o aula0706.o
+
+AULA0802OBJS = aula0802.o 
+AULA0803OBJS = aula0803.o 
+AULA0804OBJS = aula0804.o 
+AULA0805OBJS = aula0805.o 
+AULA0806OBJS = aula0806.o 
+AULA0807OBJS = aula0807.o 
+AULA0808OBJS = aula0808.o 
+AULA0809OBJS = aula0809.o 
+
+AULA0902OBJS = aula0902.o 
+AULA0903OBJS = aula0903.o 
+AULA0904OBJS = aula0904.o 
+
+LIBMATEMATICARECURSAOOBJS = aula0201a.o\
+				aula0301a.o\
+				aula0401a.o\
+				aula0403a.o
+
+LIBMATEMATICADOWHILEOBJS = aula0201b.o\
+				aula0301b.o\
+				aula0401b.o\
+				aula0403b.o
+LIBMATEMATICAFOROBJ = aula0201c.o\
+			aula0301c.o\
+			aula0401c.o\
+			aula0403c.o
+			
+
+LIBMATEMATICAWHILEOBJS = aula0201d.o\
+				aula0301d.o\
+				aula0401d.o\
+				aula0403d.o
+
+LIBMONITOROBJS = aula0701.o 
+LIBBASEOBJS = aula0801.o
+LIBARQUIVOSOBJS = aula0901.o
+EELEXIBIRPAGINAINICIALCGIOBJS = eelCgiExibirPaginaInicial.o eelErros.o eelInterfaceUsuario.o
+
+EXECS = $(AULA01) $(AULA02) $(AULA03) $(AULA04) $(AULA05) $(AULA06) $(AULA07) $(AULA08) $(AULA09) $(EELEXIBIRPAGINAINICIAL)
+
+LIBMATEMATICARECURSAO = libmatematicarecursao.a
+LIBMATEMATICADOWHILE = libmatematicadowhile.a
+LIBMATEMATICAFOR = libmatematicafor.a
+LIBMATEMATICAWHILE = libmatematicawhile.a
+LIBMONITOR = libmonitor.a
+LIBBASE = libbase.a
+LIBARQUIVOS = libarquivos.a
+
+LIBS = $(LIBMATEMATICARECURSAO)\
+      $(LIBMATEMATICADOWHILE)\
+      $(LIBMATEMATICAFOR)\
+      $(LIBMATEMATICAWHILE)\
+      $(LIBMONITOR)\
+      $(LIBBASE)\
+      $(LIBARQUIVOS)
+	
+
+ALL = $(EXECS) $(LIBS)
+
+# Regra Implicita
+.c.o:
+	$(CC) $(CFLAGS) -c $<
+
+all: $(ALL)
+
+
+################### AULA 01 ######################
+
+aula0101: $(AULA0101OBJS)
+	 $(LD) $(LFLAGS) -o $@ $(AULA0101OBJS)
+	 cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+
+aula0102: $(AULA0102OBJS)
+	 $(LD) $(LFLAGS) -o $@ $(AULA0102OBJS)
+	 cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+
+aula0103: $(AULA0103OBJS)
+	 $(LD) $(LFLAGS) -o $@ $(AULA0103OBJS)
+	 cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+
+aula0104: $(AULA0104OBJS)
+	 $(LD) $(LFLAGS) -o $@ $(AULA0104OBJS)
+	 cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+
+aula0105: $(AULA0105OBJS)
+	 $(LD) $(LFLAGS) -o $@ $(AULA0105OBJS)
+	 cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+################### AULA 02 ######################
+
+aula0202a: $(AULA0202AOBJS)
+	 $(LD) $(LFLAGS) -o $@ $(AULA0202AOBJS)
+	 cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+
+aula0202b: $(AULA0202BOBJS)
+	 $(LD) $(LFLAGS) -o $@ $(AULA0202BOBJS)
+	 cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0202c: $(AULA0202COBJS)
+	 $(LD) $(LFLAGS) -o $@ $(AULA0202COBJS)
+	 cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0202d: $(AULA0202DOBJS)
+	$(LD) $(LFLAGS) -o $@ $(AULA0202DOBJS)
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+################### AULA 03 ######################
+
+aula0302a: $(AULA0302AOBJS)
+	$(LD) $(LFLAGS) -o $@ $(AULA0302AOBJS)
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0302b: $(AULA0302BOBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0302BOBJS)
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0302c: $(AULA0302COBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0302COBJS)
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0302d: $(AULA0302DOBJS)
+	$(LD) $(LFLAGS) -o $@ $(AULA0302DOBJS)
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+################### AULA 04 ######################
+
+aula0402a: $(AULA0402AOBJS)
+	$(LD) $(LFLAGS) -o $@ $(AULA0402AOBJS)
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+
+aula0402b: $(AULA0402BOBJS)
+	$(LD) $(LFLAGS) -o $@ $(AULA0402BOBJS)
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0402c: $(AULA0402COBJS)
+	$(LD) $(LFLAGS) -o $@ $(AULA0402COBJS)
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0402d: $(AULA0402DOBJS)
+	$(LD) $(LFLAGS) -o $@ $(AULA0302DOBJS)
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+
+
+aula0404a: $(AULA0404AOBJS) $(LIBMATEMATICARECURSAO)
+	$(LD) $(LFLAGS) -o $@ $(AULA0404AOBJS) -L. -lmatematicarecursao
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO) 
+
+aula0404b: $(AULA0404BOBJS) $(LIBMATEMATICADOWHILE)
+	$(LD) $(LFLAGS) -o $@ $(AULA0404BOBJS) -L. -lmatematicadowhile
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0404c: $(AULA0404COBJS) $(LIBMATEMATICAFOR)
+	$(LD) $(LFLAGS) -o $@ $(AULA0404COBJS) -L. -lmatematicafor
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0404d: $(AULA0404DOBJS) $(LIBMATEMATICAWHILE)
+	$(LD) $(LFLAGS) -o $@ $(AULA0404DOBJS) -L. -lmatematicawhile
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0404e: $(AULA0404EOBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0404EOBJS) -lm
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+################### AULA 05 ######################
+
+aula0502a: $(AULA0502AOBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0502AOBJS) 
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0502b: $(AULA0502BOBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0502BOBJS) 
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0503a: $(AULA0503AOBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0503AOBJS) 
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+ 
+aula0503b: $(AULA0503BOBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0503BOBJS) 
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0505a: $(AULA0505AOBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0505AOBJS) 
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0505b: $(AULA0505bOBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0505BOBJS) 
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0506a: $(AULA0506AOBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0506AOBJS) 
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0506b: $(AULA0506BOBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0506BOBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0506BOBJS) 
+
+
+################### AULA 06 ######################
+
+aula0602: $(AULA0602OBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0602OBJS) 
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0602-versoes:
+	make clean cc=CLANG dialeto=C11 aula0602
+	make clean cc=CLANG dialeto=C99 aula0602
+	make clean cc=CLANG dialeto=C90 aula0602
+	make clean cc=CLANG dialeto=C89 aula0602
+	
+	make clean dialeto=C11 aula0602
+	make clean dialeto=C99 aula0602
+	make clean dialeto=C90 aula0602
+	make clean dialeto=C89 aula0602
+
+
+aula0603: $(AULA0603OBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0603OBJS) 
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0603-versoes:
+	make clean cc=CLANG dialeto=C11 aula0603
+	make clean cc=CLANG dialeto=C99 aula0603
+	make clean cc=CLANG dialeto=C90 aula0603
+	make clean cc=CLANG dialeto=C89 aula0603
+	
+	make clean dialeto=C11 aula0603
+	make clean dialeto=C99 aula0603
+	make clean dialeto=C90 aula0603
+	make clean dialeto=C89 aula0603
+
+
+
+aula0604: $(AULA0604OBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0604OBJS) 
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0604-versoes:
+	make clean cc=CLANG dialeto=C11 aula0604
+	make clean cc=CLANG dialeto=C99 aula0604
+	make clean cc=CLANG dialeto=C90 aula0604
+	make clean cc=CLANG dialeto=C89 aula0604
+	
+	make clean dialeto=C11 aula0604
+	make clean dialeto=C99 aula0604
+	make clean dialeto=C90 aula0604
+	make clean dialeto=C89 aula0604
+
+
+aula0605: $(AULA0605OBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0605OBJS) 
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0605-versoes:
+	make clean cc=CLANG dialeto=C11 aula0605
+	make clean cc=CLANG dialeto=C99 aula0605
+	make clean cc=CLANG dialeto=C90 aula0605
+	make clean cc=CLANG dialeto=C89 aula0605
+	
+	make clean dialeto=C11 aula0605
+	make clean dialeto=C99 aula0605
+	make clean dialeto=C90 aula0605
+	make clean dialeto=C89 aula0605
+
+aula0606: $(AULA0606OBJS) 
+	$(LD) $(LFLAGS) -o $@ $(AULA0606OBJS) 
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0606-versoes:
+	make clean cc=CLANG dialeto=C11 aula0606
+	make clean cc=CLANG dialeto=C99 aula0606
+	make clean cc=CLANG dialeto=C90 aula0606
+	make clean cc=CLANG dialeto=C89 aula0606
+	
+	make clean dialeto=C11 aula0606
+	make clean dialeto=C99 aula0606
+	make clean dialeto=C90 aula0606
+	make clean dialeto=C89 aula0606
+
+
+ 
+################### AULA 06 ######################
+
+
+aula0702: $(AULA0702OBJS) $(LIBMONITOR)
+	$(LD) $(LFLAGS) -o $@ $(AULA0702OBJS) -L. -lmonitor
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0702-versoes:
+	make clean cc=CLANG dialeto=C11 aula0702
+	make clean cc=CLANG dialeto=C99 aula0702
+	make clean cc=CLANG dialeto=C90 aula0702
+	make clean cc=CLANG dialeto=C89 aula0702
+	
+	make clean dialeto=C11 aula0702
+	make clean dialeto=C99 aula0702
+	make clean dialeto=C90 aula0702
+	make clean dialeto=C89 aula0702
+
+aula0703: $(AULA0703OBJS) $(LIBMONITOR)
+	$(LD) $(LFLAGS) -o $@ $(AULA0703OBJS) -L. -lmonitor
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0703-versoes:
+	make clean cc=CLANG dialeto=C11 aula0703
+	make clean cc=CLANG dialeto=C99 aula0703
+	make clean cc=CLANG dialeto=C90 aula0703
+	make clean cc=CLANG dialeto=C89 aula0703
+	
+	make clean dialeto=C11 aula0703
+	make clean dialeto=C99 aula0703
+	make clean dialeto=C90 aula0703
+	make clean dialeto=C89 aula0703
+
+aula0704: $(AULA0704OBJS) $(LIBMONITOR)
+	$(LD) $(LFLAGS) -o $@ $(AULA0704OBJS) -L. -lmonitor
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0704-versoes:
+	make clean cc=CLANG dialeto=C11 aula0704
+	make clean cc=CLANG dialeto=C99 aula0704
+	make clean cc=CLANG dialeto=C90 aula0704
+	make clean cc=CLANG dialeto=C89 aula0704
+	
+	make clean dialeto=C11 aula0704
+	make clean dialeto=C99 aula0704
+	make clean dialeto=C90 aula0704
+	make clean dialeto=C89 aula0704
+
+aula0705: $(AULA0705OBJS) $(LIBMONITOR)
+	$(LD) $(LFLAGS) -o $@ $(AULA0705OBJS) -L. -lmonitor
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0705-versoes:
+	make clean cc=CLANG dialeto=C11 aula0705
+	make clean cc=CLANG dialeto=C99 aula0705
+	make clean cc=CLANG dialeto=C90 aula0705
+	make clean cc=CLANG dialeto=C89 aula0705
+	
+	make clean dialeto=C11 aula0705
+	make clean dialeto=C99 aula0705
+	make clean dialeto=C90 aula0705
+	make clean dialeto=C89 aula0705
+
+aula0706: $(AULA0706OBJS) $(LIBMONITOR)
+	$(LD) $(LFLAGS) -o $@ $(AULA0706OBJS) -L. -lmonitor
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0706-versoes:
+	make clean cc=CLANG dialeto=C11 aula0706
+	make clean cc=CLANG dialeto=C99 aula0706
+	make clean cc=CLANG dialeto=C90 aula0706
+	make clean cc=CLANG dialeto=C89 aula0706
+	
+	make clean dialeto=C11 aula0706
+	make clean dialeto=C99 aula0706
+	make clean dialeto=C90 aula0706
+	make clean dialeto=C89 aula0706
+
+
+############# Aula 08  ##################
+
+aula0802: $(AULA0802OBJS) $(LIBBASE)
+	$(LD) $(LFLAGS) -o $@ $(AULA0802OBJS) -L. -lbase
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0802-versoes:
+	make clean cc=CLANG dialeto=C11 aula0802
+	make clean cc=CLANG dialeto=C99 aula0802
+	make clean cc=CLANG dialeto=C90 aula0802
+	make clean cc=CLANG dialeto=C89 aula0802
+	
+	make clean dialeto=C11 aula0802
+	make clean dialeto=C99 aula0802
+	make clean dialeto=C90 aula0802
+	make clean dialeto=C89 aula0802
+
+aula0803: $(AULA0803OBJS) $(LIBBASE)
+	$(LD) $(LFLAGS) -o $@ $(AULA0803OBJS) -L. -lbase
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0803-versoes:
+	make clean cc=CLANG dialeto=C11 aula0803
+	make clean cc=CLANG dialeto=C99 aula0803
+	make clean cc=CLANG dialeto=C90 aula0803
+	make clean cc=CLANG dialeto=C89 aula0803
+	
+	make clean dialeto=C11 aula0803
+	make clean dialeto=C99 aula0803
+	make clean dialeto=C90 aula0803
+	make clean dialeto=C89 aula0803
+
+aula0804: $(AULA0804OBJS) $(LIBBASE)
+	$(LD) $(LFLAGS) -o $@ $(AULA0804OBJS) -L. -lbase
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0804-versoes:
+	make clean cc=CLANG dialeto=C11 aula0804
+	make clean cc=CLANG dialeto=C99 aula0804
+	make clean cc=CLANG dialeto=C90 aula0804
+	make clean cc=CLANG dialeto=C89 aula0804
+	
+	make clean dialeto=C11 aula0804
+	make clean dialeto=C99 aula0804
+	make clean dialeto=C90 aula0804
+	make clean dialeto=C89 aula0804
+
+aula0805: $(AULA0805OBJS) $(LIBBASE)
+	$(LD) $(LFLAGS) -o $@ $(AULA0805OBJS) -L. -lbase
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0805-versoes:
+	make clean cc=CLANG dialeto=C11 aula0805
+	make clean cc=CLANG dialeto=C99 aula0805
+	make clean cc=CLANG dialeto=C90 aula0805
+	make clean cc=CLANG dialeto=C89 aula0805
+	
+	make clean dialeto=C11 aula0805
+	make clean dialeto=C99 aula0805
+	make clean dialeto=C90 aula0805
+	make clean dialeto=C89 aula0805
+
+
+aula0806: $(AULA0806OBJS) $(LIBBASE)
+	$(LD) $(LFLAGS) -o $@ $(AULA0806OBJS) -L. -lbase
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0806-versoes:
+	make clean cc=CLANG dialeto=C11 aula0806
+	make clean cc=CLANG dialeto=C99 aula0806
+	make clean cc=CLANG dialeto=C90 aula0806
+	make clean cc=CLANG dialeto=C89 aula0806
+	
+	make clean dialeto=C11 aula0806
+	make clean dialeto=C99 aula0806
+	make clean dialeto=C90 aula0806
+	make clean dialeto=C89 aula0806
+
+aula0807: $(AULA0807OBJS) $(LIBBASE)
+	$(LD) $(LFLAGS) -o $@ $(AULA0807OBJS) -L. -lbase
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0807-versoes:
+	make clean cc=CLANG dialeto=C11 aula0807
+	make clean cc=CLANG dialeto=C99 aula0807
+	make clean cc=CLANG dialeto=C90 aula0807
+	make clean cc=CLANG dialeto=C89 aula0807
+	
+	make clean dialeto=C11 aula0807
+	make clean dialeto=C99 aula0807
+	make clean dialeto=C90 aula0807
+	make clean dialeto=C89 aula0807
+
+aula0808: $(AULA0808OBJS) $(LIBBASE)
+	$(LD) $(LFLAGS) -o $@ $(AULA0808OBJS) -L. -lbase
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0808-versoes:
+	make clean cc=CLANG dialeto=C11 aula0808
+	make clean cc=CLANG dialeto=C99 aula0808
+	make clean cc=CLANG dialeto=C90 aula0808
+	make clean cc=CLANG dialeto=C89 aula0808
+	
+	make clean dialeto=C11 aula0808
+	make clean dialeto=C99 aula0808
+	make clean dialeto=C90 aula0808
+	make clean dialeto=C89 aula0808
+
+
+aula0809: $(AULA0809OBJS) $(LIBBASE)
+	$(LD) $(LFLAGS) -o $@ $(AULA0809OBJS) -L. -lbase
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0809-versoes:
+	make clean cc=CLANG dialeto=C11 aula0809
+	make clean cc=CLANG dialeto=C99 aula0809
+	make clean cc=CLANG dialeto=C90 aula0809
+	make clean cc=CLANG dialeto=C89 aula0809
+	
+	make clean dialeto=C11 aula0809
+	make clean dialeto=C99 aula0809
+	make clean dialeto=C90 aula0809
+	make clean dialeto=C89 aula0809
+
+############# AULA 09 ##################
+
+aula0902: $(AULA0902OBJS) $(LIBARQUIVOS)
+	$(LD) $(LFLAGS) -o $@ $(AULA0902OBJS) -L. -larquivos
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0902-versoes:
+	make clean cc=CLANG dialeto=C11 aula0902
+	make clean cc=CLANG dialeto=C99 aula0902
+	make clean cc=CLANG dialeto=C90 aula0902
+	make clean cc=CLANG dialeto=C89 aula0902
+	
+	make clean dialeto=C11 aula0902
+	make clean dialeto=C99 aula0902
+	make clean dialeto=C90 aula0902
+	make clean dialeto=C89 aula0902
+
+aula0903: $(AULA0903OBJS) $(LIBARQUIVOS)
+	$(LD) $(LFLAGS) -o $@ $(AULA0903OBJS) -L. -larquivos
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0903-versoes:
+	make clean cc=CLANG dialeto=C11 aula0903
+	make clean cc=CLANG dialeto=C99 aula0903
+	make clean cc=CLANG dialeto=C90 aula0903
+	make clean cc=CLANG dialeto=C89 aula0903
+	
+	make clean dialeto=C11 aula0903
+	make clean dialeto=C99 aula0903
+	make clean dialeto=C90 aula0903
+	make clean dialeto=C89 aula0903
+
+aula0904: $(AULA0904OBJS) $(LIBARQUIVOS)
+	$(LD) $(LFLAGS) -o $@ $(AULA0904OBJS) -L. -larquivos
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0904-versoes:
+	make clean cc=CLANG dialeto=C11 aula0904
+	make clean cc=CLANG dialeto=C99 aula0904
+	make clean cc=CLANG dialeto=C90 aula0904
+	make clean cc=CLANG dialeto=C89 aula0904
+	
+	make clean dialeto=C11 aula0904
+	make clean dialeto=C99 aula0904
+	make clean dialeto=C90 aula0904
+	make clean dialeto=C89 aula0904
+####################### AULA 10 ##################
+
+eelExibirPaginaInicial.cgi: $(EELEXIBIRPAGINAINICIALCGIOBJS) 
+	$(LD) $(LFLAGS) -o $@ $(EELEXIBIRPAGINAINICIALCGIOBJS) -L./CentOS -lmlcgi
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+#Copiando para o diretorio public/html/cgi
+	cp -f $@ ~mikaela.alves/public/html/CGIs/$@
+
+
+############# Criando bibliotecas ##################
+
+libmatematicarecursao.a: $(LIBMATEMATICARECURSAOOBJS)
+	ar -r -c $@ $(LIBMATEMATICARECURSAOOBJS)	
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+libmatematicadowhile.a: $(LIBMATEMATICADOWHILEOBJS)
+	ar -r -c $@ $(LIBMATEMATICADOWHILEOBJS)	
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+libmatematicafor.a: $(LIBMATEMATICAFOROBJS)
+	ar -r -c $@ $(LIBMATEMATICAFOROBJS)	
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+	
+libmatematicawhile.a: $(LIBMATEMATICAWHILEOBJS)
+	ar -r -c $@ $(LIBMATEMATICAWHILEOBJS)	
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+libmonitor.a: $(LIBMONITOROBJS)
+	ar -r -c $@ $(LIBMONITOROBJS)	
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+libbase.a: $(LIBBASEOBJS)
+	ar -r -c $@ $(LIBBASEOBJS)
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+libarquivos.a: $(LIBARQUIVOSOBJS)
+	ar -r -c $@ $(LIBARQUIVOSOBJS)
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+.PHONY: clean-all\
+	clean clean-objs\
+	clean-freebsd\
+	clean-linux\
+	clean-gcc\
+	clean-clang\
+	clean-ansi\
+	clean-c89\
+	clean-c99\
+	clean-c11\
+	clean-c90
+
+clean-all:
+	rm -f *.o $(ALL) *-FreeBSD-* *-Linux-* *.core
+
+clean:
+	rm -f *.o $(ALL) *.core
+
+clean-objs:
+	rm -f *.o *.core
+
+clean-freebsd:
+	rm -f *.o $(ALL) *-FreeBSD-* *.core
+
+clean-linux:
+	rm -f *.o $(ALL) *-Linux-* *.core
+
+clean-gcc:
+	rm -f *.o $(ALL) *-gcc-* *.core
+
+clean-clang:
+	rm -f *.o $(ALL) *-clang-* *.core
+
+clean-ansi:
+	rm -f *.o $(ALL) *-ansi *.core
+
+clean-c89:
+	rm -f *.o $(ALL) *-c89 *.core
+
+clean-c99:
+	rm -f *.o $(ALL) *-c99 *.core
+
+clean-c11:
+	rm -f *.o $(ALL) *-c11 *.core
+clean-c90:
+	rm -f *.o $(ALL) *-c11 *.core
+
+#$RCSfile: GNUmakefile,v $
